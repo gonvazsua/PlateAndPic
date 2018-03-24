@@ -1,0 +1,29 @@
+<page-header></page-header>
+
+<ion-content padding class="background">
+
+  <ion-list no-lines class="middle">
+
+    <form [formGroup]="loginForm" (ngSubmit)="checkLogin()">
+      
+      <ion-item>
+        <ion-label floating>Usuario o email</ion-label>
+        <ion-input type="text" formControlName="id" maxlength="50"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="loginForm.controls.id.touched && !loginForm.controls.id.valid"><p>Este campo es obligatorio</p></ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" formControlName="password" maxlength="30"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="loginForm.controls.password.touched && !loginForm.controls.password.valid"><p>Este campo es obligatorio</p></ion-item>
+      <ion-item *ngIf="incorrectLogin"><p class="error">Login incorrecto</p></ion-item>
+      
+      <button ion-button type="submit" [disabled]="!loginForm.valid" color="secondary" block>
+        ACCEDER
+      </button>
+      
+    </form>
+
+  </ion-list>
+
+</ion-content>

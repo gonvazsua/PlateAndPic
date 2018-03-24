@@ -1,0 +1,14 @@
+page-signup {
+    .error {
+        color: color($colors, danger, base)
+    }
+
+    .background{
+        background-image: url('../assets/imgs/background.jpg');
+        background-size: cover;
+    }
+
+    .middle {
+        margin-top: 40%;
+    }
+}

@@ -1,0 +1,44 @@
+<page-header></page-header>
+
+<ion-content padding class="background">
+
+  <ion-list no-lines class="middle">
+
+    <form [formGroup]="signupForm" (ngSubmit)="checkSignup()">
+      
+      <ion-item>
+        <ion-label floating>Nombre</ion-label>
+        <ion-input type="text" formControlName="firstname" maxlength="30"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="signupForm.controls.firstname.touched && !signupForm.controls.firstname.valid"><p>Este campo es obligatorio</p></ion-item>
+      <ion-item>
+        <ion-label floating>Apellidos</ion-label>
+        <ion-input type="text" formControlName="lastname" maxlength="50"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="signupForm.controls.lastname.touched && !signupForm.controls.lastname.valid"><p>Este campo es obligatorio</p></ion-item>
+      <ion-item>
+        <ion-label floating>Usuario</ion-label>
+        <ion-input type="text" formControlName="username" maxlength="20"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="signupForm.controls.username.touched && !signupForm.controls.username.valid"><p>Este campo es obligatorio</p></ion-item>
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" formControlName="email" maxlength="50"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="signupForm.controls.email.touched && !signupForm.controls.email.valid"><p>Introduce un email válido</p></ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" formControlName="password" maxlength="30"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="signupForm.controls.password.touched && !signupForm.controls.password.valid"><p>Este campo es obligatorio</p></ion-item>
+      <ion-item *ngIf="error"><p class="error">{{error}}</p></ion-item>
+      
+      <button ion-button type="submit" [disabled]="!signupForm.valid" color="secondary" block>
+        ENVIAR
+      </button>
+      
+    </form>
+
+  </ion-list>
+
+</ion-content>
