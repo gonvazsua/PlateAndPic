@@ -8,7 +8,7 @@
       
       <ion-item>
         <ion-label floating>Nombre</ion-label>
-        <ion-input type="text" formControlName="firstname" maxlength="30"></ion-input>
+        <ion-input type="text" formControlName="firstname" maxlength="50"></ion-input>
       </ion-item>
       <ion-item *ngIf="signupForm.controls.firstname.touched && !signupForm.controls.firstname.valid"><p>Este campo es obligatorio</p></ion-item>
       <ion-item>
@@ -23,7 +23,7 @@
       <ion-item *ngIf="signupForm.controls.username.touched && !signupForm.controls.username.valid"><p>Este campo es obligatorio</p></ion-item>
       <ion-item>
         <ion-label floating>Email</ion-label>
-        <ion-input type="text" formControlName="email" maxlength="50"></ion-input>
+        <ion-input type="text" formControlName="email" maxlength="100"></ion-input>
       </ion-item>
       <ion-item *ngIf="signupForm.controls.email.touched && !signupForm.controls.email.valid"><p>Introduce un email válido</p></ion-item>
       <ion-item>

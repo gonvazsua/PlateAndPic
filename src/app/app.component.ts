@@ -4,12 +4,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { MainPage } from '../pages/index/main/main';
+import { TabsPage } from '../pages/tabs/tabs';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = MainPage;
+  
+  rootPage:any = localStorage.getItem("token") ? TabsPage : MainPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -19,4 +21,5 @@ export class MyApp {
       splashScreen.hide();
     });
   }
+
 }

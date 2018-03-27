@@ -14,6 +14,9 @@ import { AuthProvider } from '../providers/auth';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingProvider } from '../utils/loading';
 import { HeaderPage } from '../pages/common/header/header';
+import { HomePage } from '../pages/home/home/home';
+import { UserProvider } from '../providers/user';
+import { HttpProvider } from '../providers/httpProvider';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { HeaderPage } from '../pages/common/header/header';
     LoginPage,
     SignupPage,
     TabsPage,
-    HeaderPage
+    HeaderPage,
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -36,14 +40,17 @@ import { HeaderPage } from '../pages/common/header/header';
     LoginPage,
     SignupPage,
     TabsPage,
-    HeaderPage
+    HeaderPage,
+    HomePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    LoadingProvider
+    LoadingProvider,
+    UserProvider,
+    HttpProvider
   ]
 })
 export class AppModule {}

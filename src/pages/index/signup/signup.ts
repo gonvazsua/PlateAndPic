@@ -3,6 +3,8 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthProvider } from '../../../providers/auth';
 import { LoadingProvider } from '../../../utils/loading';
+import { UserProvider } from '../../../providers/user';
+import { TabsPage } from '../../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -18,7 +20,8 @@ export class SignupPage {
     public navCtrl: NavController,
     public formBuilder: FormBuilder,
     public authProvider: AuthProvider,
-    public loading: LoadingProvider) {
+    public loading: LoadingProvider,
+    public userProvider: UserProvider) {
 
     this.signupForm = this.formBuilder.group({
       firstname : ['', Validators.required],
@@ -60,7 +63,9 @@ export class SignupPage {
   chekResponseAndRedirect(response) {
     if(!response.success) this.error = response.message;
     else {
-      this.navCtrl.setRoot('');
+      localStorage.setItem("token", response.token);      
+      this.userProvider.setUser(response.user);
+      this.navCtrl.setRoot(TabsPage);
     }
   }
 

@@ -3,6 +3,8 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthProvider } from '../../../providers/auth';
 import { LoadingProvider } from '../../../utils/loading';
+import { UserProvider } from '../../../providers/user';
+import { TabsPage } from '../../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -18,7 +20,8 @@ export class LoginPage {
     public navCtrl: NavController,
     public formBuilder: FormBuilder,
     public authProvider: AuthProvider,
-    public loading: LoadingProvider) {
+    public loading: LoadingProvider,
+    public userProvider: UserProvider) {
 
     this.loginForm = this.formBuilder.group({
       id : ['', Validators.required],
@@ -33,6 +36,7 @@ export class LoginPage {
   }
 
   checkLogin() {
+    this.incorrectLogin = false;
     this.loginForm.markAsTouched();
     if(this.isEmailAuthentication()){
       this.authenticateEmail();
@@ -77,7 +81,9 @@ export class LoginPage {
   chekResponse(response) {
     if(!response.success) this.incorrectLogin = true;
     else {
-      this.navCtrl.setRoot('');
+      localStorage.setItem("token", response.token);    
+      this.userProvider.setUser(response.user);
+      this.navCtrl.setRoot(TabsPage);
     }
   }
 

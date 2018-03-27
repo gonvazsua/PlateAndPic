@@ -9,20 +9,20 @@ export class LoadingProvider {
 
   constructor(public loadingCtrl: LoadingController) {
     this.loading = false;
-    this.loader = this.loadingCtrl.create({
-      spinner: 'crescent',
-      dismissOnPageChange : false
-    });
   }
 
   showLoading() {
     if(this.loading) return;
     this.loading = true;
+    this.loader = this.loadingCtrl.create({
+      spinner: 'crescent',
+      dismissOnPageChange : false
+    });
     this.loader.present();
   }
 
   hideLoading() {
-    if(!this.loading) return;
+    if(!this.loading || !this.loader) return;
     this.loading = false;
     this.loader.dismiss();
   }
