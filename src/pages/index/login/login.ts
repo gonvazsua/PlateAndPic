@@ -81,6 +81,7 @@ export class LoginPage {
   chekResponse(response) {
     if(!response.success) this.incorrectLogin = true;
     else {
+      localStorage.setItem("user", JSON.stringify(response.user));
       localStorage.setItem("token", response.token);    
       this.userProvider.setUser(response.user);
       this.navCtrl.setRoot(TabsPage);
