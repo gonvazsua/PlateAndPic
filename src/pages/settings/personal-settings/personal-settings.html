@@ -1,0 +1,39 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list no-lines class="middle">
+
+      <form [formGroup]="userForm" (ngSubmit)="checkUserForm()">
+        
+        <ion-item>
+          <ion-label floating>Nombre de usuario</ion-label>
+          <ion-input type="text" formControlName="username" maxlength="50"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="userForm.controls.username.touched && !userForm.controls.username.valid"><p>Este campo es obligatorio</p></ion-item>
+        <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input type="email" formControlName="email" maxlength="50"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="userForm.controls.email.touched && !userForm.controls.email.valid"><p>Introduce un email válido</p></ion-item>
+        <ion-item>
+          <ion-label floating>Nombre</ion-label>
+          <ion-input type="text" formControlName="firstname" maxlength="50"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Apellidos</ion-label>
+          <ion-input type="text" formControlName="lastname" maxlength="50"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="userForm.controls.lastname.touched && !userForm.controls.lastname.valid"><p>Este campo es obligatorio</p></ion-item>
+        
+        <button ion-button type="submit" [disabled]="!userForm.valid" color="secondary" block>
+          GUARDAR
+        </button>
+        
+      </form>
+  
+    </ion-list>
+
+</ion-content>

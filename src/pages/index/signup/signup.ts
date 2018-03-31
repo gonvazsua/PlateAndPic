@@ -63,9 +63,8 @@ export class SignupPage {
   chekResponseAndRedirect(response) {
     if(!response.success) this.error = response.message;
     else {
-      localStorage.setItem("user", JSON.stringify(response.user));
-      localStorage.setItem("token", response.token);      
       this.userProvider.setUser(response.user);
+      localStorage.setItem("token", response.token);
       this.navCtrl.setRoot(TabsPage);
     }
   }

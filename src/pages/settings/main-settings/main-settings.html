@@ -1,0 +1,27 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <button ion-item (click)="goToPersonalSettings()">
+      <ion-icon name="construct" item-start></ion-icon>
+      Actualizar datos personales
+    </button>
+    <button ion-item (click)="goToUpdatePassword()">
+      <ion-icon name="lock" item-start></ion-icon>
+      Actualizar contraseña
+    </button>
+    <button ion-item (click)="goToMyRestaurants()">
+      <ion-icon name="restaurant" item-start></ion-icon>
+      Mis restaurantes
+    </button>
+    <button ion-item (click)="logout()">
+      <ion-icon name="power" item-start></ion-icon>
+      Cerrar sesión
+    </button>
+
+  </ion-list>
+
+</ion-content>

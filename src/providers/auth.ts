@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { urls } from '../urls';
+import { User} from '../models/user';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -12,7 +13,8 @@ const httpOptions = {
 @Injectable()
 export class AuthProvider {
 
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient) {
+  }
 
   emailAuthentication(email, password) : Observable<any> {
     const parsed = {email : email, password : password };
@@ -32,6 +34,10 @@ export class AuthProvider {
       username : username, password : password }
     const coded = btoa(JSON.stringify(parsed));
     return this.http.post(urls.signup, JSON.stringify({payload: coded}), httpOptions);
+  }
+
+  logout() {
+    localStorage.clear();
   }
 
 }

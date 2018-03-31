@@ -17,6 +17,11 @@ import { HeaderPage } from '../pages/common/header/header';
 import { HomePage } from '../pages/home/home/home';
 import { UserProvider } from '../providers/user';
 import { HttpProvider } from '../providers/httpProvider';
+import { MainSettingsPage } from '../pages/settings/main-settings/main-settings';
+import { PersonalSettingsPage } from '../pages/settings/personal-settings/personal-settings';
+import { ProfilePicturePage } from '../pages/settings/profile-picture/profile-picture';
+import { RestaurantSettingsPage } from '../pages/settings/restaurant-settings/restaurant-settings';
+import { UpdatePasswordPage } from '../pages/settings/update-password/update-password';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,12 @@ import { HttpProvider } from '../providers/httpProvider';
     SignupPage,
     TabsPage,
     HeaderPage,
-    HomePage
+    HomePage,
+    MainSettingsPage,
+    PersonalSettingsPage,
+    ProfilePicturePage,
+    RestaurantSettingsPage,
+    UpdatePasswordPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +51,12 @@ import { HttpProvider } from '../providers/httpProvider';
     SignupPage,
     TabsPage,
     HeaderPage,
-    HomePage
+    HomePage,
+    MainSettingsPage,
+    PersonalSettingsPage,
+    ProfilePicturePage,
+    RestaurantSettingsPage,
+    UpdatePasswordPage
   ],
   providers: [
     StatusBar,
